@@ -1,28 +1,26 @@
-import java.awt.Dimension;
+import java.awt.*;
 import javax.swing.*;
 
-public class Menu{
+public class View_Courses {
     JFrame frame;
     JPanel myPanel;
     JLabel label;
 
-    public Menu(){
-        frame = new JFrame ("GPA Calculator");
+    public View_Courses(){
+        frame = new JFrame("View Courses");
         frame.setPreferredSize(new Dimension(400, 400));
         frame.setLocation(200,200);
 
         myPanel = new JPanel();
-        label = new JLabel("GPA Calculator");
 
-        myPanel.add(label);
         frame.add(myPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        
+    
     }
 
     public static void main(String[] args){
-        new Menu();
+        new View_Courses();
     }
-
 }
