@@ -59,7 +59,7 @@ public class Main_Menu implements ActionListener{
         }
         else if (eventName.equals("view_course")){
             frame.setVisible(false);
-            new View_Courses(4);
+            new View_Courses();
         }
         else if (eventName.equals("exit_program")){
             System.exit(0);
