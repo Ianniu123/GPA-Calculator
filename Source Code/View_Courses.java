@@ -13,7 +13,7 @@ public class View_Courses {
     
     public View_Courses(){
         frame = new JFrame("View Courses");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(815, 265));
         frame.setLocation(200,200);
 
         list = read_data(list);
