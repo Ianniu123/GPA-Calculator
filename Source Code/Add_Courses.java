@@ -19,7 +19,7 @@ public class Add_Courses implements ActionListener {
         label = new JLabel("Course Name: ");
         label1 = new JLabel("Percentage Mark: ");
         label2 = new JLabel("Credit Weight");
-
+        label3 = new JLabel();
         textfield = new JTextField(30); 
         textfield1 = new JTextField(30);
         textfield2 = new JTextField(30);
@@ -29,7 +29,7 @@ public class Add_Courses implements ActionListener {
         button.setActionCommand("add");
 
         button1 = new JButton("Back");
-        button.addActionListener(this);
+        button1.addActionListener(this);
         button1.setActionCommand("back");
 
         myPanel.add(label);
@@ -39,6 +39,8 @@ public class Add_Courses implements ActionListener {
         myPanel.add(label2);
         myPanel.add(textfield2);
         myPanel.add(button);
+        myPanel.add(button1);
+        myPanel.add(label3);
 
         frame.add(myPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,16 +68,27 @@ public class Add_Courses implements ActionListener {
 
     public void add_course(String s, String s1, String s2){
         try{
-            FileWriter fw = new FileWriter("C:/Users/98568/OneDrive/Desktop/Github/GPA-Calculator/Resources/Database.txt", true);
-            fw.write("\n" + s + ",");
-            fw.write("" + java.time.LocalDate.now() + ",");
-            fw.write(s2 + ",");
-            fw.write(calculate_letter(s1) + ",");
-            fw.write(s1);
-            fw.close();
+            if(!s.isEmpty() && !s1.isEmpty() && !s2.isEmpty()){
+                FileWriter fw = new FileWriter("C:/Users/98568/OneDrive/Desktop/Github/GPA-Calculator/Resources/Database.txt", true);
+                Double.parseDouble(s1);
+                Double.parseDouble(s2);
+                
+                fw.write("\n" + s + ",");
+                fw.write("" + java.time.LocalDate.now() + ",");
+                fw.write(s2 + ",");
+                fw.write(calculate_letter(s1) + ",");
+                fw.write(s1);
+                fw.close();
+            }
+            else{
+                label3.setText("Please don't leave any spaces above empty!");
+            }
         }
         catch(IOException e){
 
+        }
+        catch(NumberFormatException e){
+            label3.setText("Please enter valid numbers for percentage mark and credit weight!");
         }
     }
 
@@ -120,10 +133,15 @@ public class Add_Courses implements ActionListener {
         else if (d < 50 && d >= 0){
             return "F";
         }
-        else{
-            // Do Error Checks
-            return "";
+
+        return "";
+    }
+
+    public boolean check_percentage(String s){
+        if (Double.parseDouble(s) <= 100 && Double.parseDouble(s) >= 0){
+            return true;
         }
+        return false;
     }
 
 }
