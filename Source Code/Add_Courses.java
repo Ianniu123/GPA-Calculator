@@ -4,14 +4,13 @@ import java.awt.event.*;
 import java.io.*;
 
 public class Add_Courses implements ActionListener {
-    JFrame frame;
+    JFrame frame = new JFrame("View Courses");;
     JPanel myPanel;
-    JLabel label, label1, label2, label3;
+    JLabel label, label1, label2;
     JButton button, button1;
     JTextField textfield, textfield1, textfield2;
 
     public Add_Courses(){
-        frame = new JFrame("View Courses");
         frame.setPreferredSize(new Dimension(400, 400));
         frame.setLocation(200,200);
 
@@ -19,7 +18,6 @@ public class Add_Courses implements ActionListener {
         label = new JLabel("Course Name: ");
         label1 = new JLabel("Percentage Mark: ");
         label2 = new JLabel("Credit Weight");
-        label3 = new JLabel();
         textfield = new JTextField(30); 
         textfield1 = new JTextField(30);
         textfield2 = new JTextField(30);
@@ -40,7 +38,6 @@ public class Add_Courses implements ActionListener {
         myPanel.add(textfield2);
         myPanel.add(button);
         myPanel.add(button1);
-        myPanel.add(label3);
 
         frame.add(myPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +66,7 @@ public class Add_Courses implements ActionListener {
     public void add_course(String s, String s1, String s2){
         try{
             if(!s.isEmpty() && !s1.isEmpty() && !s2.isEmpty()){
-                FileWriter fw = new FileWriter("C:/Users/98568/OneDrive/Desktop/Github/GPA-Calculator/Resources/Database.txt", true);
+                FileWriter fw = new FileWriter("C:/Users/admin/Desktop/Github Projects/GPA-Calculator/Resources/Database.txt", true);
                 Double.parseDouble(s1);
                 Double.parseDouble(s2);
                 
@@ -78,17 +75,18 @@ public class Add_Courses implements ActionListener {
                 fw.write(s2 + ",");
                 fw.write(calculate_letter(s1) + ",");
                 fw.write(s1);
+                JOptionPane.showMessageDialog(frame, "Successfully added the information!");
                 fw.close();
             }
             else{
-                label3.setText("Please don't leave any spaces above empty!");
+                JOptionPane.showMessageDialog(frame, "Please don't leave any spaces above empty!");
             }
         }
         catch(IOException e){
 
         }
         catch(NumberFormatException e){
-            label3.setText("Please enter valid numbers for percentage mark and credit weight!");
+            JOptionPane.showMessageDialog(frame, "Please enter valid numbers for percentage mark and credit weight!");
         }
     }
 
@@ -136,12 +134,4 @@ public class Add_Courses implements ActionListener {
 
         return "";
     }
-
-    public boolean check_percentage(String s){
-        if (Double.parseDouble(s) <= 100 && Double.parseDouble(s) >= 0){
-            return true;
-        }
-        return false;
-    }
-
 }

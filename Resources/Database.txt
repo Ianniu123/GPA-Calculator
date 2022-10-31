@@ -1,3 +1,5 @@
 Math,2022-10-28,0.5,A+,100
 Psychology,2022-10-29,0.5,A+,99
 Calculus,2022-10-29,0.5,A+,100
+Computer Science,2022-10-30,0.5,A+,98
+Cognitive Science,2022-10-30,0.5,A-,83

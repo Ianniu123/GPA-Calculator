@@ -91,7 +91,7 @@ public class View_Courses implements ActionListener {
 
     public ArrayList<Course_Information> read_data(ArrayList<Course_Information> list){
         try{
-            BufferedReader br = new BufferedReader(new FileReader("C:/Users/98568/OneDrive/Desktop/Github/GPA-Calculator/Resources/Database.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:/Users/admin/Desktop/Github Projects/GPA-Calculator/Resources/Database.txt"));
             String line;
 
             while((line = br.readLine()) != null){
@@ -134,54 +134,54 @@ public class View_Courses implements ActionListener {
             total_credits += list.get(i).get_credit();
 
             if (s.equals("A+")){
-                total_grade4pt += 4;
-                total_grade12pt += 12; 
+                total_grade4pt += 4 * list.get(i).get_credit() ;
+                total_grade12pt += 12 * list.get(i).get_credit() ; 
             }
             else if (s.equals("A")){
-                total_grade4pt += 4;
-                total_grade12pt += 11;
+                total_grade4pt += 4 * list.get(i).get_credit();
+                total_grade12pt += 11 * list.get(i).get_credit();
             }
             else if (s.equals("A-")){
-                total_grade4pt += 3.7;
-                total_grade12pt += 10;
+                total_grade4pt += 3.7 * list.get(i).get_credit();
+                total_grade12pt += 10 * list.get(i).get_credit();
             }
             else if (s.equals("B+")){
-                total_grade4pt += 3.3;
-                total_grade12pt += 9;
+                total_grade4pt += 3.3 * list.get(i).get_credit();
+                total_grade12pt += 9 * list.get(i).get_credit();
             }
             else if (s.equals("B")){
-                total_grade4pt += 3.0;
-                total_grade12pt += 8;
+                total_grade4pt += 3.0 * list.get(i).get_credit();
+                total_grade12pt += 8 * list.get(i).get_credit();
             }
             else if (s.equals("B-")){
-                total_grade4pt += 2.7;
-                total_grade12pt += 7;
+                total_grade4pt += 2.7 * list.get(i).get_credit();
+                total_grade12pt += 7 * list.get(i).get_credit();
 
             }
             else if (s.equals("C+")){
-                total_grade4pt += 2.3;
-                total_grade12pt += 6;
+                total_grade4pt += 2.3 * list.get(i).get_credit();
+                total_grade12pt += 6 * list.get(i).get_credit();
 
             }
             else if (s.equals("C")){
-                total_grade4pt += 2.0;
-                total_grade12pt += 5;
+                total_grade4pt += 2.0 * list.get(i).get_credit();
+                total_grade12pt += 5 * list.get(i).get_credit();
             }   
             else if (s.equals("C-")){
-                total_grade4pt += 1.7;
-                total_grade12pt += 4;
+                total_grade4pt += 1.7 * list.get(i).get_credit();
+                total_grade12pt += 4 * list.get(i).get_credit();
             }
             else if (s.equals("D+")){
-                total_grade4pt += 1.3;
-                total_grade12pt += 3;
+                total_grade4pt += 1.3 * list.get(i).get_credit();
+                total_grade12pt += 3 * list.get(i).get_credit();
             }
             else if (s.equals("D")){
-                total_grade4pt += 1.0;
-                total_grade12pt += 2;
+                total_grade4pt += 1.0 * list.get(i).get_credit();
+                total_grade12pt += 2 * list.get(i).get_credit();
             }
             else if (s.equals("D-")){
-                total_grade4pt += 0.7;
-                total_grade12pt += 1;
+                total_grade4pt += 0.7 * list.get(i).get_credit();
+                total_grade12pt += 1 * list.get(i).get_credit();
             }
         }
         
